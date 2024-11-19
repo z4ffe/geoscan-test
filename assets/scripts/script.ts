@@ -32,27 +32,47 @@ const data: IData[] = [
 	}
 ]
 
-const previewImg = document.querySelector('#content__image')
+const previewImg = document.querySelector('.content__image')
 const contentControls = document.querySelector('.content__controls')
-const externalDesc = document.querySelector('#external__desc')
+const contentLink = document.querySelector('.content__link')
 
-/////////////////////////
 
+let CURRENT = 0
+let BUTTONS: NodeListOf<HTMLButtonElement> | undefined[] = []
+
+
+const changeImage = (idx: number) => {
+	previewImg.classList.add('content__image-fadeout')
+
+	setTimeout(() => {
+		previewImg.setAttribute('src', data[idx].img)
+		previewImg.setAttribute('alt', data[idx].title)
+		previewImg.classList.remove('content__image-fadeout')
+		previewImg.classList.add('content__image-fadein')
+	}, 250)
+}
+
+const changeButton = (index: number) => {
+	BUTTONS[CURRENT].classList.toggle('content__button-active')
+	BUTTONS[index].classList.toggle('content__button-active')
+	CURRENT = index
+}
 
 const renderButtons = () => {
 	data.forEach((data,idx) => {
-		contentControls.insertAdjacentHTML('beforeend',`<button>${data.title}</buton>`)
-		externalDesc.setAttribute('href', data.link)
+		contentControls.insertAdjacentHTML('beforeend',`<button class='content__button ${!idx ? 'content__button-active' : ''}'><span>${data.title}</span></buton>`)
+		contentLink.setAttribute('href', data.link)
 	})
 
-	const buttons = document.querySelectorAll('.content__controls button')
-	previewImg.setAttribute('src', data[0].img)
+	BUTTONS = document.querySelectorAll('.content__controls button')
 
-	buttons.forEach((button,idx) => button.addEventListener('click', () => {
-		previewImg.setAttribute('src', data[idx].img)
+	BUTTONS.forEach((button,idx) => button.addEventListener('click', (event) => {
+		changeButton(idx)
+		changeImage(idx)
 	}))
 }
 
 window.onload = () => {
+	previewImg.setAttribute('src', data[0].img)
 	renderButtons()
 }

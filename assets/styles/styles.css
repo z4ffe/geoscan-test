@@ -94,11 +94,80 @@ body {
   width: 100%;
   background-color: #F4F5FA;
   border-radius: 30px;
-  padding: 4rem 4rem 0 4rem;
+  padding: 4rem;
+}
+.content .content__sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 .content .content__sidebar .content__title {
   font-size: 2.5rem;
   font-weight: 600;
+}
+.content .content__sidebar .content__desc {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  line-height: 34px;
+  max-width: 29.6875rem;
+}
+.content .content__sidebar .content__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  border: 2px solid #2C2D34;
+  border-radius: 8px;
+  width: 19.375rem;
+  height: 3.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.content .content__sidebar .content__link:hover {
+  border-color: #725EF2;
+  transform: scaleX(101%);
+}
+.content .content__sidebar .content__controls {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3.375rem;
+  gap: 8px;
+}
+.content .content__sidebar .content__controls .content__button {
+  display: flex;
+  max-width: 14.6875rem;
+  width: 100%;
+  height: 5rem;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid rgba(44, 45, 52, 0.1);
+  align-items: center;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+.content .content__sidebar .content__controls .content__button span {
+  padding-left: 1.25rem;
+  max-width: 11.8125rem;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: left;
+  transition: font-size 0.3s;
+}
+.content .content__sidebar .content__controls .content__button-active {
+  border: 2px solid #725EF2;
+}
+.content .content__sidebar .content__controls .content__button-active span {
+  font-weight: 600;
+}
+.content .content_preview {
+  display: flex;
+}
+.content .content_preview .content__image {
+  max-width: 34.9375rem;
+  height: auto;
 }
 
 .arrow {
@@ -130,6 +199,35 @@ body {
     background-image: url("/assets/images/bg-arrow/mobile-small-arrow.svg");
     width: 5.9375rem;
     height: 7.5625rem;
+  }
+}
+
+.content__image-fadein {
+  animation: fadeIn 0.2s ease-in forwards;
+}
+
+.content__image-fadeout {
+  animation: fadeOut 0.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(70%);
   }
 }
 
