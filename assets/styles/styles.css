@@ -1,3 +1,55 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  max-width: 1920px;
+  align-content: center;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 81pxrem;
+}
+
+.arrow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-image: url("/assets/images/bg-arrow/desktop-arrow.svg");
+  background-repeat: no-repeat;
+  width: 37.5rem;
+  height: 18.75rem;
+  content: "";
+}
+@media screen and (max-width: 768px) {
+  .arrow {
+    background-image: url("/assets/images/bg-arrow/tablet-arrow.svg");
+    width: 12.75rem;
+    height: 6.875rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .arrow {
+    background-image: url("/assets/images/bg-arrow/mobile-arrow.svg");
+    width: 11.5625rem;
+    height: 6.875rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .arrow {
+    background-image: url("/assets/images/bg-arrow/mobile-small-arrow.svg");
+    width: 5.9375rem;
+    height: 7.5625rem;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

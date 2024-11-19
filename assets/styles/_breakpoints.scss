@@ -1,0 +1,23 @@
+$bp-lg: 1920px; // 1920px
+$bp-md: 768px;  // 768px
+$bp-sm: 425px;  // 425px
+$bp-xs: 320px;  // 320px
+
+
+@mixin responsiveTablet() {
+  @media screen and (max-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin responsivePhone() {
+  @media screen and (max-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin responsivePhoneSmall() {
+  @media screen and (max-width: $bp-xs) {
+    @content;
+  }
+}
