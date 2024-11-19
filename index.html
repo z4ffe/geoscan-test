@@ -5,17 +5,33 @@
   <meta name='viewport'
         content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
+        rel='stylesheet'>
   <link rel='stylesheet' href='assets/styles/styles.css'>
   <title>Geoscan Test</title>
 </head>
 <body>
 <main class='wrapper'>
-
+  <header class='header'>
+    <h1 class='header__title'>Системы <span>позиционирования</span></h1>
+    <p class='header__desc'>Пионер поддерживает четыре системы навигации, которые помогают ему ориентироваться в
+      пространстве</p>
+  </header>
+  <main class='content'>
+    <div class='content__sidebar'>
+      <h2 content='content__title'>Система навигации «Локус»</h2>
+      <p class='content__desc'>Для создания летной области необходимо четыре ультразвуковых излучателя и специальный модуль на самом аппарате.</p>
+      <a class='content__link' id='external__desc' target='_blank'>подробнее о системе</a>
+      <div class='content__controls'></div>
+    </div>
+    <div class='preview'>
+      <img src='' alt='' id='content__image'>
+    </div>
+  </main>
 </main>
 <div class='arrow'></div>
-<script src='assets/scripts/main.js'></script>
+<script src='assets/scripts/script.js'></script>
 </body>
 </html>

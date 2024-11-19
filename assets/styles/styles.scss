@@ -1,15 +1,13 @@
 @import "_breakpoints";
 @import "utils";
-
-:root {
-
-}
+@import "variables";
 
 * {
   font-family: "Montserrat", sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: $black;
 }
 
 html, body {
@@ -21,10 +19,87 @@ body {
   max-width: $bp-lg;
   align-content: center;
   justify-content: center;
+  margin: auto;
 }
 
 .wrapper {
-  max-width: toRem(1296px);
+  display: flex;
+  flex-direction: column;
+  max-width: toRem(1296);
+  max-height: toRem(976);
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: $white;
+  gap: toRem(87);
+
+  @include responsiveTablet {
+    margin: auto toRem(40);
+  }
+
+  @include responsivePhone {
+    margin: auto toRem(15);
+  }
+  @include responsivePhoneSmall {
+    margin: auto toRem(15);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+
+  @include responsiveTablet {
+    max-width: 100%;
+  }
+
+  @include responsivePhone {
+    max-width: 100%;
+  }
+  @include responsivePhoneSmall {
+    max-width: 100%;
+  }
+
+  .header__title {
+    font-size: toRem(64);
+    font-weight: 600;
+
+    @include responsiveTablet {
+      font-size: toRem(40);
+    }
+
+    span {
+      color: $orange
+    }
+  }
+
+  .header__desc {
+    margin-top: toRem(32);
+    font-size: toRem(32);
+    line-height: 39px;
+    font-weight: 500;
+
+    @include responsiveTablet {
+      font-size: toRem(24);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  background-color: $bg-block;
+  border-radius: 30px;
+  padding: toRem(64) toRem(64) 0 toRem(64);
+
+  .content__sidebar {
+
+    .content__title {
+      font-size: toRem(40);
+      font-weight: 600;
+    }
+  }
 }
 
 .arrow {
