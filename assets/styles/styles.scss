@@ -10,38 +10,31 @@
   color: $black;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   display: flex;
-  max-width: $bp-lg;
-  align-content: center;
+  overflow-x: hidden;
+  width: 100%;
   justify-content: center;
-  margin: auto;
-  overflow: auto;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   max-width: toRem(1296);
-  max-height: toRem(976);
   width: 100%;
-  height: 100%;
-  margin: auto toRem(50) toRem(50);
+  margin: toRem(160) toRem(50);
   gap: toRem(87);
+  overflow: hidden;
 
   @include responsiveTablet {
-    margin: auto toRem(40);
+    margin: toRem(64) toRem(40);
   }
 
   @include responsivePhone {
-    margin: auto toRem(15);
+    margin: toRem(56) toRem(15);
   }
   @include responsivePhoneSmall {
-    margin: auto toRem(15);
+    margin: toRem(56) toRem(15);
   }
 }
 
@@ -68,6 +61,10 @@ body {
 
     @include responsiveTablet {
       font-size: toRem(40);
+    }
+
+    @include responsivePhone{
+      font-size: toRem(32);
     }
 
     span {
@@ -98,11 +95,20 @@ body {
   gap: 0 115px;
   position: relative;
 
+  @include responsiveCustom('1300') {
+    gap: 0 30px;
+  }
+
   @include responsiveTablet {
     grid-template-columns: 1fr;
     grid-template-areas: 'controls' 'preview' 'title' 'desc' 'link';
     padding: toRem(40) toRem(24);
     margin-top: toRem(64);
+  }
+
+  @include responsivePhone {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'controls' 'title' 'desc' 'preview' 'link';
   }
 
   .content__title {
@@ -116,6 +122,11 @@ body {
       width: 100%;
       font-size: toRem(32);
       max-width: 100%;
+    }
+
+    @include responsivePhone {
+      padding-top: 0;
+      font-size: toRem(24);
     }
   }
 
@@ -131,13 +142,19 @@ body {
     @include responsiveTablet {
       max-width: 100%;
     }
+
+    @include responsivePhone {
+      margin-top: toRem(16);
+      font-size: toRem(20);
+      line-height: 28px;
+    }
   }
 
   .content__link {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: toRem(40);
+    margin-top: toRem(35);
     border: 2px solid $black;
     border-radius: 8px;
     width: toRem(310);
@@ -148,14 +165,21 @@ body {
     transition: .3s;
     flex-shrink: 0;
     grid-area: link;
+    letter-spacing: 1.5px;
+
+    &:hover {
+      border-color: #725EF2;
+      transform: scaleX(101%);
+    }
 
     @include responsiveTablet {
       width: 100%;
     }
 
-    &:hover {
-      border-color: #725EF2;
-      transform: scaleX(101%);
+    @include responsivePhone {
+      margin-top: toRem(24);
+      font-size: toRem(16);
+      text-align: center;
     }
 
   }
@@ -176,6 +200,14 @@ body {
       position: absolute;
       left: -24px;
       top: -200px;
+    }
+
+    @include responsivePhone {
+      flex-wrap: wrap;
+      gap: 8px;
+      width: calc(100% + 47px);
+      top: -300px;
+      margin-top: toRem(125);
     }
 
     .content__button {
@@ -199,6 +231,23 @@ body {
         border-radius: 0;
       }
 
+      @include responsivePhone {
+        border: 2px solid rgba(44, 45, 52, 0.1);
+        border-radius: 16px;
+        max-width: toRem(193);
+        min-width: toRem(141);
+        width: auto;
+        justify-content: center;
+        max-height: toRem(58);
+        flex: 1 1 auto;
+        height: toRem(58);
+      }
+
+      @include responsivePhoneSmall {
+        height: toRem(75);
+        max-height: none;
+      }
+
       span {
         padding-left: toRem(20);
         max-width: toRem(195);
@@ -213,6 +262,15 @@ body {
           color: $purple-inactive;
           font-weight: 700;
         }
+
+        @include responsivePhone {
+          font-size: toRem(14);
+          color: $black;
+          font-weight: 400;
+          padding-left: 0;
+          max-width: toRem(93);
+          text-transform: capitalize;
+        }
       }
     }
 
@@ -224,11 +282,20 @@ body {
         border-bottom: 2px solid $purple-active;
       }
 
+      @include responsivePhone {
+        border: 2px solid $purple-active;
+      }
+
       span {
         font-weight: 600;
 
         @include responsiveTablet {
           color: $purple-active;
+        }
+
+        @include responsivePhone {
+          color: $black;
+          font-weight: 600;
         }
       }
     }
@@ -245,6 +312,11 @@ body {
       padding: 0 toRem(89);
     }
 
+    @include responsivePhone {
+      padding: 0;
+      margin-top: toRem(24);
+    }
+
     .content__image {
       max-width: 100%;
       height: auto;
@@ -259,10 +331,15 @@ body {
   right: 0;
   background-image: url('/assets/images/bg-arrow/desktop-arrow.svg');
   background-repeat: no-repeat;
+  background-size: cover;
   width: toRem(600);
   height: toRem(300);
   content: '';
   z-index: 1;
+
+  @include responsiveCustom('1650') {
+    width: toRem(400);
+  }
 
   @include responsiveTablet {
     background-image: url('/assets/images/bg-arrow/tablet-arrow.svg');

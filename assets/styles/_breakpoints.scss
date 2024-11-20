@@ -1,6 +1,6 @@
 $bp-lg: 1920px; // 1920px
-$bp-md: 768px;  // 768px
-$bp-sm: 425px;  // 425px
+$bp-md: 992px;  // 992px
+$bp-sm: 441px;  // 425px
 $bp-xs: 320px;  // 320px
 
 
@@ -18,6 +18,12 @@ $bp-xs: 320px;  // 320px
 
 @mixin responsivePhoneSmall() {
   @media screen and (max-width: $bp-xs) {
+    @content;
+  }
+}
+
+@mixin responsiveCustom($value) {
+  @media screen and (max-width: $value + px) {
     @content;
   }
 }
