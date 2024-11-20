@@ -329,7 +329,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  background-image: url('/assets/images/bg-arrow/desktop-arrow.svg');
+  background-image: url('../images/bg-arrow/desktop-arrow.svg');
   background-repeat: no-repeat;
   background-size: cover;
   width: toRem(600);
@@ -342,19 +342,19 @@ body {
   }
 
   @include responsiveTablet {
-    background-image: url('/assets/images/bg-arrow/tablet-arrow.svg');
+    background-image: url('../images/bg-arrow/tablet-arrow.svg');
     width: toRem(204);
     height: toRem(110);
   }
 
   @include responsivePhone {
-    background-image: url('/assets/images/bg-arrow/mobile-arrow.svg');
+    background-image: url('../images/bg-arrow/mobile-arrow.svg');
     width: toRem(185);
     height: toRem(110);
   }
 
   @include responsivePhoneSmall {
-    background-image: url('/assets/images/bg-arrow/mobile-small-arrow.svg');
+    background-image: url('../images/bg-arrow/mobile-small-arrow.svg');
     width: toRem(95);
     height: toRem(121);
   }

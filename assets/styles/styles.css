@@ -340,7 +340,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  background-image: url("/assets/images/bg-arrow/desktop-arrow.svg");
+  background-image: url("../images/bg-arrow/desktop-arrow.svg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 37.5rem;
@@ -355,21 +355,21 @@ body {
 }
 @media screen and (max-width: 992px) {
   .arrow {
-    background-image: url("/assets/images/bg-arrow/tablet-arrow.svg");
+    background-image: url("../images/bg-arrow/tablet-arrow.svg");
     width: 12.75rem;
     height: 6.875rem;
   }
 }
 @media screen and (max-width: 441px) {
   .arrow {
-    background-image: url("/assets/images/bg-arrow/mobile-arrow.svg");
+    background-image: url("../images/bg-arrow/mobile-arrow.svg");
     width: 11.5625rem;
     height: 6.875rem;
   }
 }
 @media screen and (max-width: 320px) {
   .arrow {
-    background-image: url("/assets/images/bg-arrow/mobile-small-arrow.svg");
+    background-image: url("../images/bg-arrow/mobile-small-arrow.svg");
     width: 5.9375rem;
     height: 7.5625rem;
   }
