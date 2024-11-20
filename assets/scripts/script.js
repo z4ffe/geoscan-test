@@ -36,7 +36,7 @@ var changeImage = function (idx) {
         previewImg.setAttribute('alt', data[idx].title);
         previewImg.classList.remove('content__image-fadeout');
         previewImg.classList.add('content__image-fadein');
-    }, 250);
+    }, 400);
 };
 var changeButton = function (index) {
     BUTTONS[CURRENT].classList.toggle('content__button-active');

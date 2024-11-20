@@ -49,7 +49,7 @@ const changeImage = (idx: number) => {
 		previewImg.setAttribute('alt', data[idx].title)
 		previewImg.classList.remove('content__image-fadeout')
 		previewImg.classList.add('content__image-fadein')
-	}, 250)
+	}, 400)
 }
 
 const changeButton = (index: number) => {
