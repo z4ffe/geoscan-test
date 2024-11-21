@@ -22,7 +22,7 @@ body {
   gap: 5.4375rem;
   overflow: hidden;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .wrapper {
     margin: 4rem 2.5rem;
   }
@@ -43,7 +43,7 @@ body {
   flex-direction: column;
   max-width: 78%;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .header {
     max-width: 100%;
   }
@@ -62,7 +62,7 @@ body {
   font-size: 4rem;
   font-weight: 600;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .header .header__title {
     font-size: 2.5rem;
   }
@@ -81,9 +81,18 @@ body {
   line-height: 39px;
   font-weight: 500;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .header .header__desc {
     font-size: 1.5rem;
+    margin-top: 1.5rem;
+    line-height: 29px;
+  }
+}
+@media screen and (max-width: 441px) {
+  .header .header__desc {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    line-height: 29px;
   }
 }
 
@@ -103,18 +112,20 @@ body {
     gap: 0 30px;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content {
     grid-template-columns: 1fr;
     grid-template-areas: "controls" "preview" "title" "desc" "link";
     padding: 2.5rem 1.5rem;
-    margin-top: 4rem;
+    margin-top: 6.25rem;
+    border-radius: 16px;
   }
 }
 @media screen and (max-width: 441px) {
   .content {
     grid-template-columns: 1fr;
     grid-template-areas: "controls" "title" "desc" "preview" "link";
+    margin-top: 6.875rem;
   }
 }
 .content .content__title {
@@ -123,7 +134,7 @@ body {
   grid-area: title;
   z-index: 10;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__title {
     padding-top: 3rem;
     width: 100%;
@@ -146,7 +157,7 @@ body {
   grid-area: desc;
   z-index: 10;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__desc {
     max-width: 100%;
   }
@@ -179,7 +190,7 @@ body {
   border-color: #725EF2;
   transform: scaleX(101%);
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__link {
     width: 100%;
   }
@@ -199,7 +210,7 @@ body {
   grid-area: controls;
   scrollbar-width: none !important;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__controls {
     width: calc(100% + 88px);
     flex-wrap: nowrap;
@@ -207,7 +218,7 @@ body {
     gap: 0;
     position: absolute;
     left: -24px;
-    top: -200px;
+    top: -223px;
   }
 }
 @media screen and (max-width: 441px) {
@@ -215,7 +226,7 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     width: calc(100% + 47px);
-    top: -300px;
+    top: -320px;
     margin-top: 7.8125rem;
   }
 }
@@ -231,7 +242,7 @@ body {
   cursor: pointer;
   transition: border 0.3s;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__controls .content__button {
     width: 13.75rem;
     border: none;
@@ -267,7 +278,7 @@ body {
   text-align: left;
   transition: font-size 0.3s;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__controls .content__button span {
     text-align: center;
     text-transform: uppercase;
@@ -288,7 +299,7 @@ body {
 .content .content__controls .content__button-active {
   border: 2px solid #725EF2;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__controls .content__button-active {
     border: none;
     border-bottom: 2px solid #725EF2;
@@ -302,7 +313,7 @@ body {
 .content .content__controls .content__button-active span {
   font-weight: 600;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__controls .content__button-active span {
     color: #725EF2;
   }
@@ -319,15 +330,17 @@ body {
   grid-area: preview;
   justify-content: center;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .content .content__preview {
     padding: 0 5.5625rem;
+    overflow: hidden;
   }
 }
 @media screen and (max-width: 441px) {
   .content .content__preview {
     padding: 0;
     margin-top: 1.5rem;
+    overflow: hidden;
   }
 }
 .content .content__preview .content__image {
@@ -353,7 +366,7 @@ body {
     width: 25rem;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1215px) {
   .arrow {
     background-image: url("../images/bg-arrow/tablet-arrow.svg");
     width: 12.75rem;

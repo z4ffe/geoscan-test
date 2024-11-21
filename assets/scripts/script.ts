@@ -32,7 +32,6 @@ const positionSystemsData: IData[] = [
 	},
 ]
 
-
 class PositionSystemsContent {
 	private data: IData[]
 	private CURRENT: number = 0
@@ -72,9 +71,9 @@ class PositionSystemsContent {
 				`<button class='content__button ${!idx ? 'content__button-active' : ''}'>
 						<span>${data.title}</span>
 				</buton>`)
-			this.detailsLink.setAttribute('href', data.link)
 		})
 
+		this.detailsLink.setAttribute('href', this.data[0].link)
 		this.buttonsList = document.querySelectorAll('.content__controls button')
 
 		this.buttonsList.forEach((button, index) => button.addEventListener('click', (event) => {

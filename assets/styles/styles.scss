@@ -1,6 +1,6 @@
 @import "_breakpoints";
-@import "utils";
-@import "variables";
+@import "_utils";
+@import "_variables";
 
 * {
   font-family: "Montserrat", sans-serif;
@@ -80,6 +80,14 @@ body {
 
     @include responsiveTablet {
       font-size: toRem(24);
+      margin-top: toRem(24);
+      line-height: 29px;
+    }
+
+    @include responsivePhone {
+      font-size: toRem(24);
+      margin-top: toRem(16);
+      line-height: 29px;
     }
   }
 }
@@ -103,12 +111,14 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas: 'controls' 'preview' 'title' 'desc' 'link';
     padding: toRem(40) toRem(24);
-    margin-top: toRem(64);
+    margin-top: toRem(100);
+    border-radius: 16px;
   }
 
   @include responsivePhone {
     grid-template-columns: 1fr;
     grid-template-areas: 'controls' 'title' 'desc' 'preview' 'link';
+    margin-top: toRem(110);
   }
 
   .content__title {
@@ -199,14 +209,14 @@ body {
       gap: 0;
       position: absolute;
       left: -24px;
-      top: -200px;
+      top: -223px;
     }
 
     @include responsivePhone {
       flex-wrap: wrap;
       gap: 8px;
       width: calc(100% + 47px);
-      top: -300px;
+      top: -320px;
       margin-top: toRem(125);
     }
 
@@ -310,11 +320,13 @@ body {
 
     @include responsiveTablet {
       padding: 0 toRem(89);
+      overflow: hidden;
     }
 
     @include responsivePhone {
       padding: 0;
       margin-top: toRem(24);
+      overflow: hidden;
     }
 
     .content__image {

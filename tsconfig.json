@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "none",
+    "outFile": "./assets/scripts/script.js",
+    "rootDir": "./assets",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./assets/**/*.ts"
+  ]
+}
