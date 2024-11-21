@@ -36,6 +36,9 @@ class PositionSystemsContent {
         }
         this.data = data;
     }
+    isMobile() {
+        return window.innerWidth <= 441;
+    }
     preloadImage(image) {
         const img = new Image();
         img.src = image;
@@ -71,6 +74,8 @@ class PositionSystemsContent {
                 return;
             this.changeButton(index);
             this.changeImage(index);
+            if (this.isMobile())
+                this.previewImage.scrollIntoView({ behavior: 'smooth' });
         }));
     }
     init() {

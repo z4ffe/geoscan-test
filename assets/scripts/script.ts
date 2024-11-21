@@ -47,6 +47,10 @@ class PositionSystemsContent {
 		this.data = data
 	}
 
+	private isMobile() {
+		return window.innerWidth <= 441
+	}
+
 	private preloadImage(image: string) {
 		const img = new Image();
 		img.src = image;
@@ -87,8 +91,11 @@ class PositionSystemsContent {
 
 		this.buttonsList.forEach((button, index) => button.addEventListener('click', (event) => {
 			if (index === this.CURRENT) return
+
 			this.changeButton(index)
 			this.changeImage(index)
+
+			if (this.isMobile()) this.previewImage.scrollIntoView({behavior: 'smooth'})
 		}))
 	}
 
