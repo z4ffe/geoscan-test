@@ -57,9 +57,12 @@ class PositionSystemsContent {
     }
     renderButtons() {
         this.data.forEach((data, idx) => {
-            this.controlsContainer.insertAdjacentHTML('beforeend', `<button class='content__button ${!idx ? 'content__button-active' : ''}'>
-						<span>${data.title}</span>
-				</buton>`);
+            const button = document.createElement('button');
+            button.className = `content__button ${!idx ? 'content__button-active' : ''}`;
+            const span = document.createElement('span');
+            span.innerText = data.title;
+            button.appendChild(span);
+            this.controlsContainer.appendChild(button);
         });
         this.detailsLink.setAttribute('href', this.data[0].link);
         this.buttonsList = document.querySelectorAll('.content__controls button');
