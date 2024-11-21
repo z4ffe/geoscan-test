@@ -231,6 +231,10 @@ body {
     top: -223px;
     scrollbar-width: none !important;
   }
+  .content .content__controls::-webkit-scrollbar {
+    display: none;
+    -webkit-appearance: none;
+  }
 }
 @media screen and (max-width: 441px) {
   .content .content__controls {

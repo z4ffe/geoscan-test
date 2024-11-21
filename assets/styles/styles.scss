@@ -219,6 +219,11 @@ body {
       left: -24px;
       top: -223px;
       scrollbar-width: none !important;
+
+      &::-webkit-scrollbar{
+        display: none;
+        -webkit-appearance: none;
+      }
     }
 
     @include responsivePhone {
