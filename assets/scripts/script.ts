@@ -1,6 +1,7 @@
 interface IData {
 	title: string
 	desc: string
+	descShort?: string
 	link: string
 	img: string
 }
@@ -20,7 +21,8 @@ const positionSystemsData: IData[] = [
 	},
 	{
 		'title': 'Оптическая система навигации',
-		'desc': 'Идет в базовой комплектации. Позиционирование происходит благодаря оптическому датчику, отслеживающему смещение под Пионером.',
+		'desc': 'Идет в базовой комплектации. Позиционирование происходит благодаря оптическому датчику, отслеживающему смещение под Пионером.Идет в базовой комплектации. Позиционирование происходит благодаря оптическому датчику, отслеживающему смещение под Пионером.Идет в базовой комплектации. Позиционирование происходит благодаря оптическому датчику, отслеживающему смещение под Пионером.',
+		'descShort': 'Идет в базовой комплектации. Позиционирование происходит благодаря оптическому датчику, отслеживающему смещение под Пионером.',
 		'link': 'https://yandex.com/',
 		'img': 'assets/images/preview/optical-nav.png',
 	},
@@ -41,6 +43,7 @@ class PositionSystemsContent {
 	private detailsLink: HTMLAnchorElement | null = document.querySelector('.content__link')
 	private buttonsList: NodeListOf<HTMLButtonElement> | undefined[] = []
 	private contentTitle = document.querySelector('.content__title')
+	private contentDesc = document.querySelector('.content__desc')
 
 	constructor(data: IData[]) {
 		if (!Array.isArray(data) || !data.length) {
@@ -69,9 +72,18 @@ class PositionSystemsContent {
 		}, 400)
 	}
 
-	private changeButton(index: number) {
+	private changeContent(index: number) {
 		this.buttonsList[this.CURRENT].classList.toggle('content__button-active')
 		this.buttonsList[index].classList.toggle('content__button-active')
+		this.contentTitle.textContent = this.data[index].title
+
+		if (this.data[index].descShort && !this.isMobile()) {
+			this.contentDesc.textContent = this.data[index].descShort
+		}
+		else {
+			this.contentDesc.textContent = this.data[index].desc
+		}
+
 		this.detailsLink.setAttribute('href', this.data[index].link)
 		this.CURRENT = index
 	}
@@ -88,13 +100,12 @@ class PositionSystemsContent {
 			this.controlsContainer.appendChild(button)
 		})
 
-		this.detailsLink.setAttribute('href', this.data[0].link)
 		this.buttonsList = document.querySelectorAll('.content__controls button')
 
 		this.buttonsList.forEach((button, index) => button.addEventListener('click', () => {
 			if (index === this.CURRENT) return
 
-			this.changeButton(index)
+			this.changeContent(index)
 			this.changeImage(index)
 
 			if (this.isMobile()) this.contentTitle.scrollIntoView({behavior: 'smooth'})
@@ -110,6 +121,9 @@ class PositionSystemsContent {
 		this.data.forEach(el => this.preloadImage(el.img))
 		this.previewImage.setAttribute('src', this.data[0].img)
 		this.previewImage.setAttribute('alt', this.data[0].title)
+		this.contentTitle.textContent = this.data[0].title
+		this.contentDesc.textContent = this.data[0].desc
+		this.detailsLink.setAttribute('href', this.data[0].link)
 		this.renderButtons()
 	}
 }
