@@ -27,17 +27,19 @@ const positionSystemsData = [
 class PositionSystemsContent {
     constructor(data) {
         this.CURRENT = 0;
+        this.MOBILE_WIDTH = 441;
         this.previewImage = document.querySelector('.content__image');
         this.controlsContainer = document.querySelector('.content__controls');
         this.detailsLink = document.querySelector('.content__link');
         this.buttonsList = [];
+        this.contentTitle = document.querySelector('.content__title');
         if (!Array.isArray(data) || !data.length) {
             throw new Error('Data not provided');
         }
         this.data = data;
     }
     isMobile() {
-        return window.innerWidth <= 441;
+        return window.innerWidth <= this.MOBILE_WIDTH;
     }
     preloadImage(image) {
         const img = new Image();
@@ -69,13 +71,13 @@ class PositionSystemsContent {
         });
         this.detailsLink.setAttribute('href', this.data[0].link);
         this.buttonsList = document.querySelectorAll('.content__controls button');
-        this.buttonsList.forEach((button, index) => button.addEventListener('click', (event) => {
+        this.buttonsList.forEach((button, index) => button.addEventListener('click', () => {
             if (index === this.CURRENT)
                 return;
             this.changeButton(index);
             this.changeImage(index);
             if (this.isMobile())
-                this.previewImage.scrollIntoView({ behavior: 'smooth' });
+                this.contentTitle.scrollIntoView({ behavior: 'smooth' });
         }));
     }
     init() {

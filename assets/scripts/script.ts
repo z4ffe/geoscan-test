@@ -35,10 +35,12 @@ const positionSystemsData: IData[] = [
 class PositionSystemsContent {
 	private data: IData[]
 	private CURRENT: number = 0
+	private MOBILE_WIDTH: number = 441
 	private previewImage: HTMLImageElement | null = document.querySelector('.content__image')
 	private controlsContainer: HTMLDivElement | null = document.querySelector('.content__controls')
 	private detailsLink: HTMLAnchorElement | null = document.querySelector('.content__link')
 	private buttonsList: NodeListOf<HTMLButtonElement> | undefined[] = []
+	private contentTitle = document.querySelector('.content__title')
 
 	constructor(data: IData[]) {
 		if (!Array.isArray(data) || !data.length) {
@@ -48,7 +50,7 @@ class PositionSystemsContent {
 	}
 
 	private isMobile() {
-		return window.innerWidth <= 441
+		return window.innerWidth <= this.MOBILE_WIDTH
 	}
 
 	private preloadImage(image: string) {
@@ -89,13 +91,13 @@ class PositionSystemsContent {
 		this.detailsLink.setAttribute('href', this.data[0].link)
 		this.buttonsList = document.querySelectorAll('.content__controls button')
 
-		this.buttonsList.forEach((button, index) => button.addEventListener('click', (event) => {
+		this.buttonsList.forEach((button, index) => button.addEventListener('click', () => {
 			if (index === this.CURRENT) return
 
 			this.changeButton(index)
 			this.changeImage(index)
 
-			if (this.isMobile()) this.previewImage.scrollIntoView({behavior: 'smooth'})
+			if (this.isMobile()) this.contentTitle.scrollIntoView({behavior: 'smooth'})
 		}))
 	}
 
