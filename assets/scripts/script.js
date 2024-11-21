@@ -29,6 +29,7 @@ class PositionSystemsContent {
     constructor(data) {
         this.CURRENT = 0;
         this.MOBILE_WIDTH = 441;
+        this.TABLET_WIDTH = 1215;
         this.previewImage = document.querySelector('.content__image');
         this.controlsContainer = document.querySelector('.content__controls');
         this.detailsLink = document.querySelector('.content__link');
@@ -39,6 +40,9 @@ class PositionSystemsContent {
             throw new Error('Data not provided');
         }
         this.data = data;
+    }
+    isTablet() {
+        return window.innerWidth <= this.TABLET_WIDTH;
     }
     isMobile() {
         return window.innerWidth <= this.MOBILE_WIDTH;
@@ -79,11 +83,17 @@ class PositionSystemsContent {
             this.controlsContainer.appendChild(button);
         });
         this.buttonsList = document.querySelectorAll('.content__controls button');
-        this.buttonsList.forEach((button, index) => button.addEventListener('click', () => {
+        this.buttonsList.forEach((button, index) => button.addEventListener('click', (ev) => {
             if (index === this.CURRENT)
                 return;
             this.changeContent(index);
             this.changeImage(index);
+            if (this.isTablet()) {
+                this.controlsContainer.scroll({
+                    left: button.offsetLeft - 65,
+                    behavior: 'smooth',
+                });
+            }
             if (this.isMobile())
                 this.contentTitle.scrollIntoView({ behavior: 'smooth' });
         }));

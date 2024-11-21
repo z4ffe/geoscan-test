@@ -209,7 +209,6 @@ body {
     margin-top: toRem(54);
     gap: 8px;
     grid-area: controls;
-    scrollbar-width: none !important;
 
     @include responsiveTablet {
       width: calc(100% + 88px);
@@ -219,6 +218,7 @@ body {
       position: absolute;
       left: -24px;
       top: -223px;
+      scrollbar-width: none !important;
     }
 
     @include responsivePhone {
@@ -227,6 +227,8 @@ body {
       width: calc(100% + 48px);
       top: -320px;
       margin-top: toRem(125);
+      overflow: hidden;
+      height: fit-content;
     }
 
     @include responsivePhoneSmall{
@@ -270,10 +272,6 @@ body {
         height: toRem(75);
         max-height: none;
         max-width: toRem(141);
-      }
-
-      @include responsiveCustom('308') {
-
       }
 
       span {
@@ -341,6 +339,10 @@ body {
     @include responsiveTablet {
       padding: 0 toRem(89);
       overflow: hidden;
+    }
+
+    @include responsiveCustom('690') {
+      padding: 0 toRem(25);
     }
 
     @include responsivePhone {

@@ -38,6 +38,7 @@ class PositionSystemsContent {
 	private data: IData[]
 	private CURRENT: number = 0
 	private MOBILE_WIDTH: number = 441
+	private TABLET_WIDTH: number = 1215
 	private previewImage: HTMLImageElement | null = document.querySelector('.content__image')
 	private controlsContainer: HTMLDivElement | null = document.querySelector('.content__controls')
 	private detailsLink: HTMLAnchorElement | null = document.querySelector('.content__link')
@@ -52,6 +53,9 @@ class PositionSystemsContent {
 		this.data = data
 	}
 
+	private isTablet() {
+		return window.innerWidth <= this.TABLET_WIDTH
+	}
 	private isMobile() {
 		return window.innerWidth <= this.MOBILE_WIDTH
 	}
@@ -102,11 +106,19 @@ class PositionSystemsContent {
 
 		this.buttonsList = document.querySelectorAll('.content__controls button')
 
-		this.buttonsList.forEach((button, index) => button.addEventListener('click', () => {
+		this.buttonsList.forEach((button, index) => button.addEventListener('click', (ev) => {
 			if (index === this.CURRENT) return
 
 			this.changeContent(index)
 			this.changeImage(index)
+
+
+			if (this.isTablet()) {
+				this.controlsContainer.scroll({
+					left: button.offsetLeft - 65,
+					behavior: 'smooth',
+				})
+			}
 
 			if (this.isMobile()) this.contentTitle.scrollIntoView({behavior: 'smooth'})
 		}))
@@ -130,3 +142,4 @@ class PositionSystemsContent {
 
 const positionSystemContent = new PositionSystemsContent(positionSystemsData)
 window.onload = () => positionSystemContent.init()
+
