@@ -47,7 +47,12 @@ class PositionSystemsContent {
 		this.data = data
 	}
 
-	changeImage(index: number) {
+	private preloadImage(image: string) {
+		const img = new Image();
+		img.src = image;
+	}
+
+	private changeImage(index: number) {
 		this.previewImage.classList.add('content__image-fadeout')
 
 		setTimeout(() => {
@@ -89,6 +94,7 @@ class PositionSystemsContent {
 			throw new Error('DOM elements not found')
 		}
 
+		this.data.forEach(el => this.preloadImage(el.img))
 		this.previewImage.setAttribute('src', this.data[0].img)
 		this.previewImage.setAttribute('alt', this.data[0].title)
 		this.renderButtons()

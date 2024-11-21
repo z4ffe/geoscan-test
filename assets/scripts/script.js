@@ -36,6 +36,10 @@ class PositionSystemsContent {
         }
         this.data = data;
     }
+    preloadImage(image) {
+        const img = new Image();
+        img.src = image;
+    }
     changeImage(index) {
         this.previewImage.classList.add('content__image-fadeout');
         setTimeout(() => {
@@ -70,6 +74,7 @@ class PositionSystemsContent {
         if (!this.previewImage || !this.controlsContainer || !this.detailsLink) {
             throw new Error('DOM elements not found');
         }
+        this.data.forEach(el => this.preloadImage(el.img));
         this.previewImage.setAttribute('src', this.data[0].img);
         this.previewImage.setAttribute('alt', this.data[0].title);
         this.renderButtons();
