@@ -67,6 +67,11 @@ body {
       font-size: toRem(32);
     }
 
+    @include responsivePhoneSmall {
+      max-width: toRem(200);
+      word-wrap: break-word;
+    }
+
     span {
       color: $orange
     }
@@ -119,6 +124,10 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas: 'controls' 'title' 'desc' 'preview' 'link';
     margin-top: toRem(110);
+  }
+
+  @include responsivePhoneSmall {
+    margin-top: toRem(140);
   }
 
   .content__title {
@@ -215,9 +224,13 @@ body {
     @include responsivePhone {
       flex-wrap: wrap;
       gap: 8px;
-      width: calc(100% + 47px);
+      width: calc(100% + 48px);
       top: -320px;
       margin-top: toRem(125);
+    }
+
+    @include responsivePhoneSmall{
+      top: -355px;
     }
 
     .content__button {
@@ -245,17 +258,22 @@ body {
         border: 2px solid rgba(44, 45, 52, 0.1);
         border-radius: 16px;
         max-width: toRem(193);
-        min-width: toRem(141);
+        min-width: toRem(135);
         width: auto;
         justify-content: center;
         max-height: toRem(58);
-        flex: 1 1 auto;
+        flex: 1 1 toRem(135);
         height: toRem(58);
       }
 
       @include responsivePhoneSmall {
         height: toRem(75);
         max-height: none;
+        max-width: toRem(141);
+      }
+
+      @include responsiveCustom('308') {
+
       }
 
       span {
@@ -274,11 +292,13 @@ body {
         }
 
         @include responsivePhone {
+          display: block;
           font-size: toRem(14);
           color: $black;
           font-weight: 400;
           padding-left: 0;
-          max-width: toRem(93);
+          max-width: toRem(150);
+          width: 100%;
           text-transform: capitalize;
         }
       }
@@ -366,9 +386,10 @@ body {
   }
 
   @include responsivePhoneSmall {
+    top: 18px;
     background-image: url('../images/bg-arrow/mobile-small-arrow.svg');
     width: toRem(95);
-    height: toRem(121);
+    height: toRem(101);
   }
 }
 
